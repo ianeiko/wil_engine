@@ -56,8 +56,6 @@ var createLocationIndex = function(){
   });
 }
 
-
-
 fs.readdir(dataDir, function (err, files) {
   if (!err){
     dropCollection()

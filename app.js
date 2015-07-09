@@ -4,7 +4,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var wil_engine = require('./wil_engine');
+var records = require('./routes/records');
 
 var app = express();
 
@@ -18,12 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/records/:location', function (req, res) {
-  var location = req.params.location;
-  var cb = function(data){
-    res.send(data)
-  }
-  wil_engine(location, cb);
-});
+app.use('/records', records);
 
 module.exports = app;

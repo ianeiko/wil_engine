@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .box
+    h5 Records for #{location}
+      small  (#{coords[0]}, #{coords[1]})
+    table.mdl-data-table.mdl-js-data-table
+      thead
+        tr
+          th.mdl-data-table__cell--non-numeric Month
+          th Temperature
+          th Precipitation
+      tbody
+        each record in records
+          tr
+            td.mdl-data-table__cell--non-numeric #{record.month}
+            td #{record.temperature}
+            td #{record.precipitation}

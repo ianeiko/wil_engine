@@ -1,7 +1,7 @@
 var fs = require('fs');
 var _ = require('lodash')
-var temperatureFile = 'sample_data/air_temp.2010'
-var precipitationFile = 'sample_data/precip.2010'
+var temperatureFile = 'data/air_temp.2010'
+var precipitationFile = 'data/precip.2010'
 
 fs.readFile(temperatureFile, 'utf8', function(err, data){
   if(err) {
@@ -10,10 +10,15 @@ fs.readFile(temperatureFile, 'utf8', function(err, data){
 
   var dataInput = data.split('\n');
   var result = _.map(dataInput, function(item){
-    var line = item.replace(/\s+/g, ',');
+    var line = item;
+    line = line.replace(/^\s+/g, '');
+    line = line.replace(/\s+/g, ',');
+
     var lineValues = line.split(',')
-    var longitude = Number(lineValues.shift()).toFixed(2)
-    var latitude = Number(lineValues.shift()).toFixed(2)
+    var longitude = lineValues.shift()
+    var latitude = lineValues.shift()
+    latitude = Number(latitude).toFixed(2)
+    longitude = Number(longitude).toFixed(2)
 
     var record = {
       loc: {
@@ -34,13 +39,18 @@ fs.readFile(temperatureFile, 'utf8', function(err, data){
     var dataInput = data.split('\n');
 
     _.each(dataInput, function(item){
-      var line = item.replace(/\s+/g, ',');
+      var line = item;
+      line = line.replace(/^ +/gm, '');
+      line = line.replace(/\s+/g, ',');
+
       var lineValues = line.split(',')
-      var longitude = Number(lineValues.shift()).toFixed(2)
-      var latitude = Number(lineValues.shift()).toFixed(2)
+      var longitude = lineValues.shift()
+      var latitude = lineValues.shift()
+      latitude = Number(latitude).toFixed(2)
+      longitude = Number(longitude).toFixed(2)
 
       var resultIndex = _.findIndex(result, function(record) {
-        return record.loc.coordinates[0] == longitude && record.loc.coordinates[1] == latitude;
+        return record.loc.coordinates[0] === longitude && record.loc.coordinates[1] === latitude;
       });
 
       if(resultIndex > -1){

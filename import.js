@@ -50,7 +50,7 @@ var createLocationIndex = function(){
       loc : "2dsphere"
     }, function(err, result){
       assert.equal(err, null)
-      console.log(result)
+      // console.log(result)
       db.close()
     })
   });

@@ -1,3 +1,7 @@
+# START
+
+$ npm start
+
 # DATA
 
 http://climate.geog.udel.edu/~climate/html_pages/download.html#T2011

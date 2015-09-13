@@ -7,6 +7,9 @@ router.get('/:location', function(req, res, next) {
   var location = req.params.location;
   var cb = function(data){
     data = data[0]
+    if (!data){
+      return false;
+    }
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var records = []
     _.each(months, function(n, i){

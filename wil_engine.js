@@ -13,7 +13,7 @@ var findGeoNear = function (db, coordinates, cb) {
       { $near:
         {
           $geometry: { type: "Point", coordinates: coordinates },
-          $maxDistance: (50 * 1000)
+          $maxDistance: (100 * 1000)
         }
       }
   })

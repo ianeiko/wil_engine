@@ -11,6 +11,7 @@ module.exports = function(location, callback) {
 
   geocoder.geocode(location, function(err, res) {
     if (res && res[0]) {
+      // console.log('geocoder', res[0]);
       var coordinates = [res[0].longitude, res[0].latitude];
       callback(coordinates);
     }

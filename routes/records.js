@@ -13,7 +13,6 @@ router.get('/:location', function(req, res, next) {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var records = []
     _.each(months, function(n, i){
-      console.log(data.temp)
       var record = {
         month: n,
         temperature: data.temp[i],

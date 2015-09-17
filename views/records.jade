@@ -2,6 +2,7 @@ extends layout
 
 block content
   .box
+    a.search_again(href='/') &laquo;Search again
     h5 Records for #{location}
       small  (#{coords[0]}, #{coords[1]})
     table.mdl-data-table.mdl-js-data-table
@@ -14,5 +15,5 @@ block content
         each record in records
           tr
             td.mdl-data-table__cell--non-numeric #{record.month}
-            td #{record.temperature}
-            td #{record.precipitation}
+            td #{record.temperature}&deg;C
+            td #{record.precipitation}mm

@@ -8,6 +8,9 @@ fs.readFile(temperatureFile, 'utf8', function(err, data){
     return console.log(err)
   }
 
+  console.log('Starting data processing')
+  console.log('This will take a few minutes...')
+
   var dataInput = data.split('\n')
   var result = _.map(dataInput, function(item){
     var line = item
@@ -66,7 +69,7 @@ fs.readFile(temperatureFile, 'utf8', function(err, data){
         if(err) {
           return console.log(err)
         }
-        console.log("The file was saved!")
+        console.log("File "+ index +" was saved!")
       })
     }
 
@@ -79,6 +82,7 @@ fs.readFile(temperatureFile, 'utf8', function(err, data){
           var latitude = Number(val.loc.coordinates[1])
           val.loc.coordinates = [longitude, latitude]
         })
+        console.log("Writing file "+ index)
         writeFile(index, JSON.stringify(chunk))
       })
     }

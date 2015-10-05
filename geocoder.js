@@ -1,7 +1,8 @@
 var geocoderProvider = 'opencage';
 var httpAdapter = 'http';
+var geocoderKey = require('./geocoderKey');
 var extra = {
-  apiKey: 'c1cecae3b03e9388b572b1e1828eaf45', // for Mapquest, OpenCage, Google Premier
+  apiKey: geocoderKey.opencage, // for Mapquest, OpenCage, Google Premier
   formatter: null         // 'gpx', 'string', ...
 };
 

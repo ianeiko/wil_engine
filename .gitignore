@@ -2,3 +2,4 @@ node_modules
 raw_data
 data_output
 npm-debug.log
+geocoderKey.js

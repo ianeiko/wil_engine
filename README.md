@@ -18,6 +18,10 @@ $ bash import_data
 
 Note: this will take a few minutes
 
+## SIGN UP FOR AN OPENCAGE API KEY
+
+[OpenCage Geocoder](https://developer.opencagedata.com/) requires an API key, enter it into geocoder.js
+
 ## START
 
 $ npm start
